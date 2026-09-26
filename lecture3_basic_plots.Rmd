@@ -1,0 +1,43 @@
+---
+title: "Basic Plots - Lecture 3"
+author: "Rezwana Habib"
+date: "2026-09-26"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+# Basic Plots
+
+This document demonstrates how to create a histogram and scatterplot using ggplot.
+
+## Create the Dataframe
+
+```{r create_plot_data}
+set.seed(1234)
+
+plot_df = tibble(
+  x = rnorm(1000, sd = .5),
+  y = 1 + 2 * x + rnorm(1000)
+)
+```
+
+## Histogram
+
+The following histogram displays the distribution of x.
+
+```{r histogram}
+ggplot(plot_df, aes(x = x)) +
+  geom_histogram()
+```
+
+## Scatterplot
+
+The following scatterplot displays the relationship between x and y.
+
+```{r scatterplot}
+ggplot(plot_df, aes(x = x, y = y)) +
+  geom_point()
+```
